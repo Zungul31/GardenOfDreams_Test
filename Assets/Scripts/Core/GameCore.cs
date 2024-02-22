@@ -213,4 +213,11 @@ public class GameCore : MonoBehaviour
     {
         _data.characters[1].health = _data.characters[0].maxHealth;
     }
+
+    public void ReloadGame()
+    {
+        SaveManager.ResetData();
+        NewEnemy();
+        StartGame();
+    }
 }

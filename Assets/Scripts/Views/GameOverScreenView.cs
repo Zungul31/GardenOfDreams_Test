@@ -1,17 +1,20 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameOverScreenView : ViewBase
 {
+    [SerializeField] private Button reloadButton;
+    
+    public Action OnClickReloadButton;
+    
     private void OnEnable()
     {
-        //throw new NotImplementedException();
+        reloadButton.onClick.AddListener(() => OnClickReloadButton?.Invoke());
     }
 
     private void OnDisable()
     {
-        //throw new NotImplementedException();
+        reloadButton.onClick.RemoveAllListeners();
     }
 }
